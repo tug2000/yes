@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="templateManage" namespace="/templateManage" extends="root">
+		<action name="templateManage" class="com.ruijie.mcp.action.TemplateAction">
+			<result name="config">/web/template/template_manage.jsp</result>
+			<result name="simple">/web/template/template_simple.jsp</result>
+			<result name="adlogo">/web/newtemplate/ad_logo.jsp</result>
+			<result name="adimage">/web/newtemplate/ad_image.jsp</result>
+			<result name="adscroll">/web/newtemplate/ad_scroll.jsp</result>
+			<result name="dynamic">/web/newtemplate/dynamic_template.jsp</result>
+		</action>
+	</package>
+</struts>

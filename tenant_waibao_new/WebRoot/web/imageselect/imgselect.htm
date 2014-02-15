@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>imgAreaSelect</title>
+		<meta name="keywords" content="imgareaselect,javascript,jquery,plugin,image,area,select,crop,cropper,Michal Wojciechowski,odyniec">
+		<link rel="stylesheet" type="text/css" href="./files/imgareaselect-animated.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="./files/jquery.imgareaselect.pack.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function preview(img, selection) {
+				if (!selection.width || !selection.height)
+					return;
+
+				var scaleX = 100 / selection.width;
+				var scaleY = 100 / selection.height;
+
+				$('#preview img').css({
+					width : Math.round(scaleX * 300),
+					height : Math.round(scaleY * 300),
+					marginLeft : -Math.round(scaleX * selection.x1),
+					marginTop : -Math.round(scaleY * selection.y1)
+				});
+			}
+
+			$(function() {
+				$('#photo').imgAreaSelect({
+					aspectRatio : '1:1',
+					handles : true,
+					fadeSpeed : 200,
+					onSelectChange : preview
+				});
+			});
+		</script>
+		<div class="frame" style="width: 300px; height: 300px;float:left;margin-right:50px">
+			<img id="photo" src="files/flower2.jpg">
+		</div>
+		<div id="preview" style="width: 100px; height: 100px; overflow: hidden;">
+			<img src="files/flower2.jpg" style="width: 100px; height: 100px;">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="tenantManage" namespace="/tenantManage" extends="root">
+		<action name="tenantManage" class="com.ruijie.mcp.action.TenantManageAction">
+			<result name="update">/web/admin/system_admin_modify.jsp</result>
+			<result name="list">/web/admin/system_admin_list.jsp</result>
+			<result name="add">/web/admin/system_admin_add.jsp</result>
+		</action>
+	</package>
+</struts>

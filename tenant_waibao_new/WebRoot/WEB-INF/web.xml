@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:spring/*.xml</param-value>
+	</context-param>
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>compressionFilters.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ignore</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<!-- spring security -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>singleSession</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>adPortalFilter</filter-name>
+		<filter-class>com.ruijie.mcp.web.filter.AdPortalFilter</filter-class>
+	</filter>
+	<filter>
+		<description>非法字符过滤器</description>
+		<filter-name>inputFilter</filter-name>
+		<filter-class>com.ruijie.mcp.web.filter.InputFilter</filter-class>
+		<init-param>
+			<param-name>excludePath</param-name>
+			<param-value>/weixinManage/</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>sessionContextIntegrationFilter</filter-name>
+		<filter-class>com.ruijie.mcp.security.filter.HttpSessionContextIntegrationFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<!-- 静态资源客户端浏览器缓存 默认为 24小时 -->
+	<filter>
+		<description>静态资源客户端缓存过滤器</description>
+		<filter-name>expiresFilter</filter-name>
+		<filter-class>com.ruijie.mcp.web.filter.ExpiresFilter</filter-class>
+		<init-param>
+			<param-name>.css</param-name>
+			<!-- 单位时间：秒 -->
+			<param-value>86400</param-value>
+		</init-param>
+		<init-param>
+			<param-name>.gif</param-name>
+			<!-- 单位时间：秒 -->
+			<param-value>86400</param-value>
+		</init-param>
+		<init-param>
+			<param-name>.jpg</param-name>
+			<!-- 单位时间：秒 -->
+			<param-value>86400</param-value>
+		</init-param>
+		<init-param>
+			<param-name>.png</param-name>
+			<!-- 单位时间：秒 -->
+			<param-value>86400</param-value>
+		</init-param>
+		<!-- 该参数在开发阶段可以不加，以方便JS调试 -->
+		<init-param>
+			<param-name>.js</param-name>
+			<!-- 单位时间：秒 -->
+			<param-value>86400</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+		<init-param>  
+	        <param-name>struts.action.excludePattern</param-name>  
+	        <param-value>/ueditor/.*</param-value>  
+    	</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/j_spring_security_check</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/j_spring_security_logout</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>sessionContextIntegrationFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>inputFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>inputFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>expiresFilter</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>expiresFilter</filter-name>
+		<url-pattern>*.gif</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>expiresFilter</filter-name>
+		<url-pattern>*.jpg</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>expiresFilter</filter-name>
+		<url-pattern>*.png</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>expiresFilter</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>adPortalFilter</filter-name>
+		<url-pattern>/adPortal</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<url-pattern>/servlet/upload</url-pattern>
+	</filter-mapping>
+	<listener>
+		<listener-class>org.springframework.security.ui.session.HttpSessionEventPublisher</listener-class>
+	</listener>
+	<listener>
+		<!-- <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> -->
+		<listener-class>com.ruijie.mcp.util.ApplicationContextUtilsInitListener</listener-class>
+	</listener>
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>admin_login.jsp</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error/403.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.jsp</location>
+	</error-page>
+	<!-- 安全控制 -->
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/*</url-pattern>
+			<http-method>PUT</http-method>
+			<http-method>DELETE</http-method>
+			<http-method>HEAD</http-method>
+			<http-method>OPTIONS</http-method>
+			<http-method>TRACE</http-method>
+		</web-resource-collection>
+		<auth-constraint />
+	</security-constraint>
+	
+	<!-- weixin -->
+	<servlet>
+	    <servlet-name>weixin</servlet-name>
+	    <servlet-class>com.ruijie.mcp.weixin.WeiXinHandlerServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>weixin</servlet-name>
+	    <url-pattern>/weixin/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 万科入口 -->
+	<servlet>
+	    <servlet-name>wanke</servlet-name>
+	    <servlet-class>com.ruijie.mcp.web.filter.WankeLoginServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>wanke</servlet-name>
+	    <url-pattern>/wanke/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 点券App入口 -->
+	<servlet>
+	    <servlet-name>couponapi</servlet-name>
+	    <servlet-class>com.ruijie.mcp.application.coupon.CouponApiServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>couponapi</servlet-name>
+	    <url-pattern>/couponapi/*</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

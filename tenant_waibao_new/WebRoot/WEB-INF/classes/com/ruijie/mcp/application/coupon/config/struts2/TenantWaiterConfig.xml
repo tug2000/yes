@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="tenantWaiter" namespace="/tenantWaiter" extends="root">
+		<action name="tenantWaiter" class="com.ruijie.mcp.application.coupon.action.TenantWaiterAction">
+			<result name="list">/web/application/coupon/tenant_waiter_list.jsp</result>
+			<result name="add">/web/application/coupon/tenant_waiter_add.jsp</result>
+			<result name="update">/web/application/coupon/tenant_waiter_modify.jsp</result>
+		</action>
+	</package>
+</struts>

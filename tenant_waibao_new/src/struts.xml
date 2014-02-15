@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 设置文件上传时整个表单请求内容的最大字节数 -->
+	<constant name="struts.multipart.maxSize" value="512000" />
+	<!-- 指定国际化资源文件的baseName 为 globalMessages -->
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	<!-- 设置浏览器是否缓存,默认值为true,开发阶段最好关闭 -->
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<!-- 这个常量会作用于setCharacterEncoding方法，指定编码字符 -->
+	<constant name="struts.i18n.encoding" value="utf-8"/>
+	<!-- 用于设置OGNL是否允许静态方法访问，默认为false -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+	<!-- 该属性设置struts2是否支持动态方法调用,该属性的默认值是true -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	
+
+	<package name="root" namespace="/" extends="struts-default">
+		
+		<interceptors>
+			<!--             定义权限控制拦截器 -->
+			<interceptor name="auth"
+				class="com.ruijie.mcp.util.AuthorizationInterceptor" />
+			<!--             定义一个包含权限控制的拦截器栈 -->
+			<interceptor-stack name="epp">
+				<!--                 定义拦截器栈包含default-stack拦截器栈 -->
+				<interceptor-ref name="defaultStack" />
+				<!--                 定义拦截器栈包含authority拦截器  -->
+				<interceptor-ref name="auth" />
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<!-- 下面定义的结果对所有的Action都有效 -->
+			<result name="noPrivilege" type="redirect">
+				/noPrivilege.jsp
+			</result>
+			<result name="login" type="redirect">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="sysPortal" type="redirect">
+				../main/sysPortal.jsp
+			</result>
+			<result name="comPortal" type="redirect">
+				../main/comPortal.jsp
+			</result>
+		</global-results>
+
+	</package>
+	
+	<include file="/com/ruijie/mcp/config/struts2/logo.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/adContentPush.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/template.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/templateList.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/systemAdmin.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/onlineDetail.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/mobileResourceManage.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/systemConfig.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/TenantConfig.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/systemLog.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/tenantManage.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/WeiXinConfig.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/WeiXinPublic.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/WeiXinCoupon.xml"/>
+	<include file="/com/ruijie/mcp/config/struts2/initializeUser.xml"/>
+	<include file="/com/ruijie/mcp/application/coupon/config/struts2/TenantWaiterConfig.xml"/>	
+	<include file="/com/ruijie/mcp/application/coupon/config/struts2/TenantCouponManage.xml"/>	
+</struts>

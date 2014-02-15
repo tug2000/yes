@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="adContentPushManage" namespace="/adContentPushManage" extends="root">
+		<action name="adContentPushManage" class="com.ruijie.mcp.action.AdContentPushAction">
+			<result name="detail">/web/adcontentpush/ad_content_push_detail.jsp</result>
+			<result name="send">/web/adcontentpush/ad_content_push_send.jsp</result>
+			<result name="add">/web/adcontentpush/add_ad_content_push.jsp</result>
+			<result name="update">/web/adcontentpush/ad_content_push_modify.jsp</result>
+			<result name="list">/web/adcontentpush/ad_content_push_list.jsp</result>
+		</action>
+	</package>
+</struts>

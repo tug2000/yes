@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+*{ margin:0; padding:0; }
+
+
+body{ font-size:12px; font-family:"arial","微软雅黑"; position:relative;}
+a{ color:#000; text-decoration:none; cursor:pointer;}
+img {border:none; vertical-align:middle;}
+ul, ol,li{list-style: none;}
+.clear_float{ clear:both;}
+select{ padding:2px;}
+table input{ vertical-align:middle;}
+
+.all_box{ width:100%;}
+.wrapper{ width:330px; margin:auto; overflow:hidden; zoom:1;}
+.wrapper_ad{ width:330px; margin:auto; overflow:hidden; zoom:1;}
+
+.tap{overflow:hidden;margin-top:3px;}
+.tap li{ width:165px; float:left;list-style-type:none;}
+.tap li img{width:165px;}
+
+.tap_ad{overflow:hidden;margin-top:3px;}
+.tap_ad li{ width:165px; float:left;list-style-type:none;}
+.tap_ad li img{width:165px;}
+
+.tap2{overflow:hidden; margin-top:3px;}
+.tap2 img{ width:100%}
+.login_box{ background:#fff; }
+.login_01{ padding:20px 20px 0 20px; overflow:hidden;}
+.login_01 li{ float:left; margin:2px 0 8px 0;}
+.login_01_failure{ margin-right:25px;}
+.font16{ font:16px/1.4 "微软雅黑"; }
+.input_01{ width:200px; height:38px; font:14px/36px "微软雅黑"; background: url(../images/auth/iip01.gif); border:0; text-indent:10px;}
+.bnt01{ width:84px; height:38px; font:14px/36px "微软雅黑"; background: url(../images/auth/iip02.gif); border:0px; color:#fff;}
+
+.banner{position:relative; padding:5px 5px 5px 5px; background:#fff;}
+.banner img{ width:100%; min-height:350px;margin-bottom:5px;}
+.banner_weixin_pic{position:relative; padding:5px 5px 5px 5px; background:#fff;}
+.banner_weixin_pic img{ width:100%; height:100px;margin-bottom:5px;}
+
+.container, .container img{width:320px; height:200px;padding:0px 5px 5px 5px;}
+.container{border:1px solid #333;}
+.container img{border:0;}
+
+.content {
+	overflow: hidden;
+	zoom: 1;
+	width: 330px;
+}
+.content ul li {
+	width: auto;
+	height: 149px;
+	margin: 5px 6px 0px 17px;
+	_margin: 5 5px 5px 5px;
+	float: left;
+}
+.content_manage {
+	overflow: hidden;
+	zoom: 1;
+	width: 330px;
+}
+.content_manage ul li {
+	width: auto;
+	height: 149px;
+	margin: 0px 0px 0px 0px;
+	float: left;
+}
+.toplogo {
+	background: url(../images/h_02.gif) repeat-x;
+}
+
+.logo img {
+	width: 330px;
+	height: 50px;
+}
+
+.add_input {
+	background-image: url(../images/input_bj.gif);
+	background-repeat: repeat-x;
+	height: 20px;
+	width: 180px;
+	border: 1px solid #c9c9c9;
+	font-size: 12px;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+	line-height: 20px;
+	margin-right: 5px;
+}
+.mb01_r {
+	width: 550px;
+	float: left;
+	margin-top: 10px;
+	border: 1px #d2d2d2 solid;
+	background: #fff;
+	min-height: 500px;
+}
+.tith3 {
+	background: #699be2;
+	color: #fff;
+	margin-bottom: 5px;
+	font: bold 12px/30px Arial, Helvetica, sans-serif;
+	text-indent: 6px;
+}
+
+.txt01 {
+	font: 12px/30px Arial, Helvetica, sans-serif;
+	color: #656565;
+	margin-left: 10px;
+}
+.login_box1 {
+	height: 36px;
+	width: 192px;
+	font: 16px/36px Arial, Helvetica, sans-serif;
+	border: 0;
+	color: #666;
+	text-indent: 8px;
+	margin: 0 10px;
+}
+.bnt01 p {
+	margin: 5px;
+	font: 16px/1.5 Arial, Helvetica, sans-serif;
+}

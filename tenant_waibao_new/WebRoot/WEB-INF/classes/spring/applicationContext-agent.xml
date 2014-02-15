@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 移动终端设备userAgent特征标识符,请将当前配置文件存放到安装目录的conf文件夹下 -->
+	<bean id="mobileUserAgent" class="com.ruijie.mcp.util.agent.UserAgentBean" abstract="false" singleton="true"
+	lazy-init="default" autowire="default" dependency-check="default">
+		<!-- 手机设备的userAgent标识符 -->
+		<property name="phoneTypeKeyList">
+			<list>
+				<value>iphone</value><!-- ios系统 -->
+				<value>ipod</value><!-- ios系统 -->
+				<value>ucweb</value><!-- 目前UC浏览器仅支持在手机上使用-->
+				<value>mqqbrowser</value><!-- QQ手机浏览器-->
+				<value>android</value><!-- 安卓手机系统浏览器 -->
+				<value>symbianos</value><!-- 塞班系统目前仅支持在手机使用 S60-->
+				<value>series</value><!-- Series平台 S40-->
+				<value>maui</value><!-- MTK手机系统-->
+				<value>brew</value><!-- brew手机系统-->
+				<value>bolt</value><!-- featurephone手机系统-->
+				<value>windows mobile</value><!--其他手机系统支持 已退市-->
+				<value>WindowsPhoneOS</value><!--其他手机系统支持-->
+				<value>windows phone</value> <!--windows手机-->
+				<value>zte</value>
+				<value>samsung</value>
+				<value>nokie</value>
+				<value>htc</value> <!--htc手机-->
+			</list>
+		</property>
+		
+		<!-- pc/平板电脑的userAgent标识符 -->
+		<property name="padTypeKeyList">
+			<list>
+				<value>ipad</value><!-- ios系统 -->
+				<value>a500</value>
+				<value>tf101</value><!-- 华硕平板电脑-->
+				<value>touchpad</value><!-- 汉王平板电脑-->
+				<value>msie</value>
+				<value>firefox</value>
+				<value>chrome</value>
+				<value>opera</value>
+				<value>windows nt</value>
+			</list>
+		</property>
+		
+		<!--<property name="mobileOS">
+			<list>
+				<value>htc_sensation_z710e</value>
+				<value>mobile safari</value>
+				<value>blackBerry</value>
+				<value>fennec</value>
+				<value>maemo browser</value>
+				<value>opera mini</value>
+				<value>iPhone</value>
+				<value>ipod</value>
+				<value>android</value>
+				<value>NOKIA</value>
+				<value>sony</value>
+				<value>Ericsson</value>
+				<value>SonyEricsson</value>
+				<value>MOT</value>
+				<value>htc</value>
+				<value>SAMSUNG</value>
+				<value>sgh</value>
+				<value>LG</value>
+				<value>PHILIPS</value>
+				<value>LENOVO</value>
+				<value>ucweb</value>
+				<value>opera mobi</value>
+				<value>windows mobile</value>
+				<value>Windows CE</value>
+				<value>BlackBerry</value>
+				<value>Series60</value>
+				<value>SymbianOS</value>
+				<value>Series</value>
+				<value>Motorola</value>
+				<value>SEC</value>
+				<value>ZTE</value>
+				<value>DX</value>
+				<value>DAXIAN-</value>
+				<value>TELSON</value>
+				<value>Dopod</value>
+				<value>Haier</value>
+				<value>CECT</value>
+				<value>NEC</value>
+				<value>Bird</value>
+				<value>DBTEL</value>
+				<value>TCL</value>
+				<value>oppo</value>
+				<value>AMOI</value>
+				<value>Alcatel</value>
+				<value>BenQ</value>
+				<value>KONKA</value>
+				<value>ChangHong</value>
+				<value>MALATA</value>
+				<value>KTOUCH</value>
+				<value>TIANYU</value>
+				<value>K-TOUCH</value>
+				<value>untrusted</value>
+				<value>panasonic</value>
+				<value>cldc</value>
+				<value>midp</value>
+				<value>wap</value>
+				<value>mobile</value>
+				<value>zxwap</value>
+				<value>baiduspider</value>
+				<value>sosospider</value>
+				<value>googlebot</value>
+				<value>cect</value>
+				<value>Eastcom</value>
+			</list>
+		</property>-->
+	</bean>
+</beans>

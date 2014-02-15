@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="deleteLogJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="deleteLogTask" />
+		</property>
+		<property name="targetMethod">
+			<value>taskJob</value>
+		</property>
+	</bean>
+	<bean id="deleteLogCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="deleteLogJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 02 * * ?</value>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref local="deleteLogCronTrigger" />
+				<ref local="updateExpireStatusTrigger" />
+				<ref local="deleteShortUrlCronTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="updateExpireStatus"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="deleteLogTask" />
+		</property>
+		<property name="targetMethod">
+			<value>changeExpireStatus</value>
+		</property>
+	</bean>
+	
+	<bean id="updateExpireStatusTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="updateExpireStatus" />
+		</property>
+		<property name="cronExpression">
+			<value>0 5 0 * * ?</value><!-- 0点5分执行 -->
+		</property>
+	</bean>
+	
+	<bean id="deleteLogTask" class="com.ruijie.mcp.user.log.job.DeleteLogTask">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+		<property name="iSystemConfigBus" ref="systemConfigBus"></property>
+		<property name="iOnlineDetailBus" ref="onlineDetailBus"></property>
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	
+	
+	<!-- 删除短链接历史记录 -->
+	<bean id="deleteShortUrlJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="deleteShortUrlTask" />
+		</property>
+		<property name="targetMethod">
+			<value>taskJob</value>
+		</property>
+	</bean>
+	<bean id="deleteShortUrlCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="deleteShortUrlJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 04 * * ?</value>
+		</property>
+	</bean>	
+	<bean id="deleteShortUrlTask" class="com.ruijie.mcp.user.log.job.DeleteShortUrlTask">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+		<property name="shortUrlMappingBus" ref="shortUrlMappingBus"></property>
+	</bean>
+
+</beans>

@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+*{ margin:0; padding:0; }
+
+
+body{ font-size:12px; font-family:"arial","微软雅黑"; background:#393939; color:#fff; position:relative;}
+a{ color:#000; text-decoration:none; cursor:pointer;}
+img {border:none; vertical-align:middle;}
+ul, ol{list-style: none;}
+.clear_float{ clear:both;}
+select{ padding:2px;}
+table input{ vertical-align:middle;}
+
+.all_box{ width:100%;}
+.wrapper{ margin:auto; width:330px; margin:4px auto 10px auto; overflow:hidden; zoom:1;}
+.bnt01 p{ margin:5px; font:16px/1 Arial, Helvetica, sans-serif;}
+.login_box1{background:url(../images/bnt_03.png) no-repeat; height:36px; width:192px; font:16px/36px Arial, Helvetica, sans-serif; border:0; color:#666; margin:0 10px;}
+.login_box2{background:url(../images/bnt_05.png) no-repeat; height:36px; width:72px; font:16px/36px Arial, Helvetica, sans-serif; border:0; color:#666; }
+
+
+.banner{position:relative; margin-top:8px;}
+.banner img{ width:100%}
+
+
+/*------flashbanner style--------*/
+.conflash { WIDTH: 320; HEIGHT:450px; z-index:1;}
+.conflash A IMG { WIDTH:320px; HEIGHT: 450px; overflow:hidden; }
+.conflash IMG { BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none}
+.td_f A IMG { PADDING: 0px; MARGIN: 0px;}
+.num { POSITION: absolute; WIDTH: 100px; FLOAT: right; TOP:430px; right:5px;}
+.num LI { TEXT-ALIGN: center; LINE-HEIGHT: 15px; LIST-STYLE-TYPE: none; WIDTH: 21px; FONT-FAMILY: Arial; BACKGROUND:#000; FLOAT: left; HEIGHT: 15px; COLOR: #fff; FONT-SIZE: 12px; CURSOR: pointer;filter:Alpha(Opacity=80); opacity:0.8; margin-right:2px; font-weight:bold;}
+.num LI.on {LINE-HEIGHT: 15px; WIDTH: 21px; BACKGROUND:#d21d2c; HEIGHT: 15px; filter:Alpha(Opacity=100);opacity:1.0; font-weight:bold; position:relative; overflow:hidden;}
+.more { FLOAT: right}
+.more1 A { TEXT-ALIGN: left; LINE-HEIGHT: 25px; MARGIN: 0px 0px 0px 10px; COLOR: #3373a3}
+/*------flashbanner style end--------*/

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- 通用DAO -->
+	<bean id="genericDao" class="com.ruijie.mcp.dao.common.GenericDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 广告内容推送 -->
+	<bean id="adContentPushDao" class="com.ruijie.mcp.dao.impl.AdContentPushDao" parent="genericDao" />
+	
+	<!-- 用户注册 -->
+	<bean id="userRegisterDao" class="com.ruijie.mcp.dao.impl.UserRegisterDao" parent="genericDao" />
+	
+	<!-- 在线用户 -->
+	<bean id="onlineUserDao" class="com.ruijie.mcp.dao.impl.OnlineUserDao" parent="genericDao" />
+	
+	<!-- 手机信息管理 -->
+	<bean id="mobileResourceManageDao" class="com.ruijie.mcp.dao.impl.MobileResourceManageDao" parent="genericDao" />
+	
+	<!-- 系统管理员 -->
+	<bean id="systemAdminDao" class="com.ruijie.mcp.dao.impl.SystemAdminDao" parent="genericDao" />
+	
+	<!-- 系统管理员 -->
+	<bean id="systemConfigDao" class="com.ruijie.mcp.dao.impl.SystemConfigDao" parent="genericDao" />
+	
+	<!-- SMP上网明细 -->
+	<bean id="onlineDetailDao" class="com.ruijie.mcp.user.log.dao.OnlineDetailDaoImpl" parent="genericDao" />
+	
+	<!-- 广告图片-->
+	<bean id="adImagesDao" class="com.ruijie.mcp.dao.impl.AdImagesDao" parent="genericDao" />
+	
+	<!-- 广告文本-->
+	<bean id="adTextDao" class="com.ruijie.mcp.dao.impl.AdTextDao" parent="genericDao" />
+	
+	<!-- 模板管理 -->
+	<bean id="templateManageDao" class="com.ruijie.mcp.dao.impl.TemplateManageDao" parent="genericDao" />
+	
+	<!-- 短信发送历史记录 -->
+	<bean id="smsSendCountDao" class="com.ruijie.mcp.dao.impl.SmsSendCountDao" parent="genericDao" />
+	
+	<!-- 租户参数配置 -->
+	<bean id="tenantParameterConfigDao" class="com.ruijie.mcp.dao.impl.TenantParameterConfigDao" parent="genericDao" />
+	
+	<!-- 租户表-->
+	<bean id="tenantDao" class="com.ruijie.mcp.dao.impl.TenantDao" parent="genericDao" />
+	
+	<!-- 系统日志表-->
+	<bean id="systemLogDao" class="com.ruijie.mcp.user.log.dao.SystemLogDao" parent="genericDao" />
+	
+    <!-- 短链接映射表 -->
+	<bean id="shortUrlMappingDao" class="com.ruijie.mcp.dao.impl.ShortUrlMappingDao" parent="genericDao" />
+	
+	<!-- 微信账号绑定 -->
+	<bean id="weixinAccountDao" class="com.ruijie.mcp.weixin.dao.impl.WeixinAccountDao" parent="genericDao" />
+	
+	<!-- 微信图文 -->
+	<bean id="weixinPicTextDao" class="com.ruijie.mcp.weixin.dao.impl.WeixinPicTextDao" parent="genericDao" />
+	
+	<!-- 微信关键字自动回复规则 -->
+	<bean id="weixinKeyReplyRuleDao" class="com.ruijie.mcp.weixin.dao.impl.WeixinKeyReplyRuleDao" parent="genericDao" />
+	
+	<!-- 微信关键字规则映射关系 -->
+	<bean id="weixinKeyRuleRelationDao" class="com.ruijie.mcp.weixin.dao.impl.WeixinKeyRuleRelationDao" parent="genericDao" />
+	
+	<!-- 微信自定义菜单 -->
+	<bean id="weixinCustomMenuDao" class="com.ruijie.mcp.weixin.dao.impl.WeixinCustomMenuDao" parent="genericDao" />
+	
+	<!-- 设备管理优化 -->
+	<bean id="snAcsUrlDao" class="com.ruijie.mcp.dao.impl.SnAcsUrlDao" parent="genericDao" />
+	
+	<!-- ****************************以下是营销云的配置****************************** -->
+	<!-- 店员管理 -->
+	<bean id="tenantWaiterDao" class="com.ruijie.mcp.application.coupon.dao.impl.TenantWaiterDao" parent="genericDao" />
+	<!-- 顾客管理 -->
+	<bean id="tenantCustomerDao" class="com.ruijie.mcp.application.coupon.dao.impl.TenantCustomerDao" parent="genericDao" />
+	<!-- 点券管理 -->
+	<bean id="tenantCouponDao" class="com.ruijie.mcp.application.coupon.dao.impl.TenantCouponDao" parent="genericDao" />
+	<!-- 点券兑换记录管理 -->
+	<bean id="tenantCouponConverDao" class="com.ruijie.mcp.application.coupon.dao.impl.TenantCouponConverDao" parent="genericDao" />
+	<!-- 点券消费记录管理 -->
+	<bean id="tenantCouponConsumeDao" class="com.ruijie.mcp.application.coupon.dao.impl.TenantCouponConsumeDao" parent="genericDao" />
+	<!-- 顾客点券关联表 -->
+	<bean id="customerCouponDao" class="com.ruijie.mcp.application.coupon.dao.impl.CustomerCouponDao" parent="genericDao" />
+	<!-- 商家 -->
+	<bean id="tenantBusinessesDao" class="com.ruijie.mcp.application.coupon.dao.impl.TenantBusinessesDao" parent="genericDao" />
+	
+</beans>

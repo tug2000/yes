@@ -1,0 +1,451 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 12px;
+	font-family: "arial", "微软雅黑";
+	background: #3467b3;
+	color: #fff;
+	position: relative;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+img {
+	border: none;
+	vertical-align: middle;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+.clear_float {
+	clear: both;
+}
+
+select {
+	padding: 2px;
+}
+
+table input {
+	vertical-align: middle;
+}
+
+.all_box {
+	width: 100%;
+}
+
+.wrapper {
+	margin: auto;
+	width: 330px;
+	margin: 4px auto 10px auto;
+	overflow: hidden;
+	zoom: 1;
+}
+.wrapper_web_auth {
+	margin: auto;
+	width: 320px;
+	margin: 0px auto 0px auto;
+	overflow: hidden;
+	zoom: 1;
+}
+.toplogo {
+	background: url(../images/h_02.gif) repeat-x;
+}
+
+.logo img {
+	width: 320px;
+	height: 71px;
+}
+
+.content {
+	overflow: hidden;
+	zoom: 1;
+	width: 320px;
+}
+
+.content ul li {
+	width: auto;
+	height: 149px;
+	margin: 0 7px 12px 7px;
+	_margin: 0 5px 12px 5px;
+	float: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.banner {
+	position: relative;
+	margin: 8px 0 0 7px;
+}
+
+.banner img {
+	width: 100%
+}
+
+.txt1 {
+	font: 12px/30px Arial, Helvetica, sans-serif;
+	background: #2b83eb;
+	width: 303px;
+	height: 30px;
+	margin: 8px 0 0 7px;
+}
+
+.txt1 a {
+	color: #FFF;
+}
+
+.footer {
+	border-top: 1px #7b9cce solid;
+	font: 14px/1.4 Arial, Helvetica, sans-serif;
+	padding: 10px;
+	color: #a3d0f2;
+}
+
+/*------flashbanner style--------*/
+.conflash {
+	WIDTH: 303px;
+	HEIGHT: 130px;
+	z-index: 1;
+}
+
+.conflash A IMG {
+	WIDTH: 303px;
+	HEIGHT: 130px;
+	overflow: hidden;
+}
+
+.conflash IMG {
+	BORDER-BOTTOM-STYLE: none;
+	BORDER-RIGHT-STYLE: none;
+	BORDER-TOP-STYLE: none;
+	BORDER-LEFT-STYLE: none
+}
+
+.td_f A IMG {
+	PADDING: 0px;
+	MARGIN: 0px;
+}
+
+.num {
+	POSITION: absolute;
+	WIDTH: 100px;
+	FLOAT: right;
+	TOP: 314px;
+	right: 4px;
+}
+
+.num LI {
+	TEXT-ALIGN: center;
+	LINE-HEIGHT: 15px;
+	LIST-STYLE-TYPE: none;
+	WIDTH: 21px;
+	FONT-FAMILY: Arial;
+	BACKGROUND: #000;
+	FLOAT: left;
+	HEIGHT: 15px;
+	COLOR: #fff;
+	FONT-SIZE: 12px;
+	CURSOR: pointer;
+	filter: Alpha(Opacity = 80);
+	opacity: 0.8;
+	margin-right: 2px;
+	font-weight: bold;
+}
+
+.num LI.on {
+	LINE-HEIGHT: 15px;
+	WIDTH: 21px;
+	BACKGROUND: #d21d2c;
+	HEIGHT: 15px;
+	filter: Alpha(Opacity = 100);
+	opacity: 1.0;
+	font-weight: bold;
+	position: relative;
+	overflow: hidden;
+}
+
+.more {
+	FLOAT: right
+}
+
+.more1 A {
+	TEXT-ALIGN: left;
+	LINE-HEIGHT: 25px;
+	MARGIN: 0px 0px 0px 10px;
+	COLOR: #3373a3
+}
+
+/*------flashbanner style end--------*/
+.opacity {
+	opacity: 0;
+	FILTER: Alpha(Opacity = 0);
+}
+
+.text {
+	border: 1px solid #c0c1b3;
+}
+
+.text.opacity {
+	position: absolute;
+	height: 30px;
+	width: 260px !important;
+}
+
+.text.file {
+	width: 150px !important;
+	width: 156px;
+	z-index: 100;
+}
+
+.text.file_btn {
+	height: 30px;
+	margin: 0 0 -1px 0;
+	width: auto !important;
+	width: 60px;
+	background: #f0f0f0;
+	padding: ;
+}
+
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 12px;
+	font-family: "arial", "微软雅黑";
+	background: url(../images/bg.gif) repeat-x #393939;
+	color: #fff;
+	position: relative;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+img {
+	border: none;
+	vertical-align: middle;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+.clear_float {
+	clear: both;
+}
+
+select {
+	padding: 2px;
+}
+
+table input {
+	vertical-align: middle;
+}
+
+.all_box {
+	width: 100%;
+}
+
+.wrapper {
+	width: 330px;
+	margin: auto;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.bnt01 p {
+	margin: 5px;
+	font: 16px/1.5 Arial, Helvetica, sans-serif;
+}
+
+.login_box1 {
+	height: 36px;
+	width: 192px;
+	font: 16px/36px Arial, Helvetica, sans-serif;
+	border: 0;
+	color: #666;
+	text-indent: 8px;
+	margin: 0 10px;
+}
+
+.login_box2 {
+	height: 36px;
+	width: 72px;
+	font: 16px/36px Arial, Helvetica, sans-serif;
+	border: 0;
+	color: #666;
+	text-indent: 30px;
+}
+
+.banner {
+	position: relative;
+	margin-top: 8px;
+}
+
+.banner img {
+	width: 100%
+}
+
+.tap {
+	overflow: hidden;
+	padding-top: 3px;
+	margin-bottom: 12px;
+}
+
+.tap li {
+	float: center;
+	width: 220px;
+	height: 60px;
+	margin-left:50px;
+	list-style-type: none;
+	
+}
+
+.tap li img {
+	width: 100%;
+}
+
+/*------flashbanner style--------*/
+.conflash {
+	WIDTH: 320;
+	HEIGHT: 450px;
+	z-index: 1;
+}
+
+.conflash A IMG {
+	WIDTH: 320px;
+	HEIGHT: 450px;
+	overflow: hidden;
+}
+
+.conflash IMG {
+	BORDER-BOTTOM-STYLE: none;
+	BORDER-RIGHT-STYLE: none;
+	BORDER-TOP-STYLE: none;
+	BORDER-LEFT-STYLE: none
+}
+
+.td_f A IMG {
+	PADDING: 0px;
+	MARGIN: 0px;
+}
+
+.num {
+	POSITION: absolute;
+	WIDTH: 100px;
+	FLOAT: right;
+	TOP: 430px;
+	right: 5px;
+}
+
+.num LI {
+	TEXT-ALIGN: center;
+	LINE-HEIGHT: 15px;
+	LIST-STYLE-TYPE: none;
+	WIDTH: 21px;
+	FONT-FAMILY: Arial;
+	BACKGROUND: #000;
+	FLOAT: left;
+	HEIGHT: 15px;
+	COLOR: #fff;
+	FONT-SIZE: 12px;
+	CURSOR: pointer;
+	filter: Alpha(Opacity = 80);
+	opacity: 0.8;
+	margin-right: 2px;
+	font-weight: bold;
+}
+
+.num LI.on {
+	LINE-HEIGHT: 15px;
+	WIDTH: 21px;
+	BACKGROUND: #d21d2c;
+	HEIGHT: 15px;
+	filter: Alpha(Opacity = 100);
+	opacity: 1.0;
+	font-weight: bold;
+	position: relative;
+	overflow: hidden;
+}
+
+.more {
+	FLOAT: right
+}
+
+.more1 A {
+	TEXT-ALIGN: left;
+	LINE-HEIGHT: 25px;
+	MARGIN: 0px 0px 0px 10px;
+	COLOR: #3373a3
+}
+
+/*------flashbanner style end--------*/
+/*-----new ad template----*/
+.mb01 {
+	width: 1000px;
+}
+
+.mb01_l {
+	width: 330px;
+	float: left;
+	margin: 10px;
+	border: 1px #d2d2d2 solid;
+	background: #fff;
+	min-height: 500px;
+}
+
+.mb01_r {
+	width: 550px;
+	float: left;
+	margin-top: 10px;
+	border: 1px #d2d2d2 solid;
+	background: #fff;
+	min-height: 500px;
+}
+
+.tith3 {
+	background: #699be2;
+	color: #fff;
+	margin-bottom: 5px;
+	font: bold 12px/30px Arial, Helvetica, sans-serif;
+	text-indent: 6px;
+}
+
+.txt01 {
+	font: 12px/30px Arial, Helvetica, sans-serif;
+	color: #656565;
+	margin-left: 10px;
+}
+
+.btn2 {
+	BORDER: 0px;
+	FONT-SIZE: 12px;
+	BACKGROUND-IMAGE: url(../images/btn_bj2.gif);
+	WIDTH: 77px;
+	CURSOR: hand;
+	COLOR: #FFFFFF;
+	HEIGHT: 25px;
+	BACKGROUND-COLOR: transparent;
+	background-repeat: no-repeat;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 23px;
+}

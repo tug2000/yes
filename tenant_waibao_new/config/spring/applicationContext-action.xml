@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+	
+	<!-- 广告内容推送 -->
+	<bean id="adContentPushAction" class="com.ruijie.mcp.action.AdContentPushAction" scope="prototype">
+		<property name="adContentPushBus" ref="adContentPushBus" />
+		<property name="onlineUserBus" ref="onlineUserBus"/>
+		<property name="systemAdminBus" ref="systemAdminBus" />
+		<property name="messageBus" ref="messageBus" />
+		<property name="systemLogBus" ref="systemLogBus" />
+		<property name="smsSendCountBus" ref="smsSendCountBus" />
+	</bean>
+	
+	<!-- 模板管理 -->
+	<bean id="templateAction" class="com.ruijie.mcp.action.TemplateAction" scope="prototype">
+		<property name="systemConfigBus" ref="systemConfigBus" />
+		<property name="adImagesBus" ref="adImagesBus" />
+		<property name="adTextBus" ref="adTextBus"/>
+		<property name="templateManageBus" ref="templateManageBus"/>
+		<property name="deviceOperaterDabbo" ref="deviceOperaterDabbo"/>
+	</bean>
+	
+	<!-- 模板列表管理 -->
+	<bean id="templateList" class="com.ruijie.mcp.action.TemplateListAction" scope="prototype">
+		<property name="templateManageBus" ref="templateManageBus" />
+		<property name="systemLogBus" ref="systemLogBus" />
+		<property name="adImagesBus" ref="adImagesBus" />
+		<property name="systemConfigBus" ref="systemConfigBus" />
+		<property name="deviceOperaterDabbo" ref="deviceOperaterDabbo"/>
+		<property name="adTextBus" ref="adTextBus"/>
+	</bean>
+	
+	<!-- 系统管理员 -->
+	<bean id="adminAction" class="com.ruijie.mcp.action.AdminAction" scope="prototype">
+		<property name="systemAdminBus" ref="systemAdminBus" />
+		<property name="systemLogBus" ref="systemLogBus" />
+		<property name="passwordEncoder" ref="passwordEncoder" />
+	</bean>
+	
+	<!-- 租户管理 -->
+	<bean id="tenantManage" class="com.ruijie.mcp.action.TenantManageAction" scope="prototype">
+		<property name="systemAdminBus" ref="systemAdminBus" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="systemLogBus" ref="systemLogBus" />
+		<property name="systemConfigBus" ref="systemConfigBus" />
+		<property name="webValidateConstantsBus" ref="webValidateConstantsBus"/>
+		<property name="securityRegisterService" ref="securityRegisterService" />
+		<property name="passwordEncoder" ref="passwordEncoder" />
+	</bean>
+	
+	<!-- 上网明细 -->
+	<bean id="onlineDetailAction" class="com.ruijie.mcp.user.log.web.OnlineDetailAction" scope="prototype">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	
+	<!-- 手机信息管理 -->
+	<bean id="mobileResourceManage" class="com.ruijie.mcp.action.MobileResourceManageAction" scope="prototype">
+		<property name="onlineUserBus" ref="onlineUserBus"/>
+		<property name="mobileResourceManageBus" ref="mobileResourceManageBus"/>
+	</bean>
+	
+	<!-- 系统配置 -->
+	<bean id="configAction" class="com.ruijie.mcp.action.ConfigAction" scope="prototype">
+		<property name="systemConfigBus" ref="systemConfigBus" />
+		<property name="systemLogBus" ref="systemLogBus" />
+	</bean>
+	
+	<!-- 租户系统参数配置 -->
+	<bean id="tenantConfigAction" class="com.ruijie.mcp.action.TenantConfigAction" scope="prototype">
+		<property name="tenantParameterConfigBus" ref="tenantParameterConfigBus" />
+		<property name="systemAdminBus" ref="systemAdminBus" />
+		<property name="snAcsUrlBus" ref="snAcsUrlBus" />
+	</bean>
+	
+	<!-- logo配置 -->
+	<bean id="logoAction" class="com.ruijie.mcp.action.LogoAction" scope="prototype">
+	</bean>
+	
+	<!-- 微信管理 -->
+	<bean id="weiXinManageAction" class="com.ruijie.mcp.weixin.action.WeiXinManageAction" scope="prototype">
+		<property name="weixinAccountBus" ref="weixinAccountBus" />
+		<property name="weixinPicTextBus" ref="weixinPicTextBus" />
+		<property name="weixinKeyReplyRuleBus" ref="weixinKeyReplyRuleBus" />
+		<property name="weixinKeyRuleRelationBus" ref="weixinKeyRuleRelationBus" />
+		<property name="weixinCustomMenuBus" ref="weixinCustomMenuBus" />
+		<property name="systemLogBus" ref="systemLogBus" />
+	</bean>
+	
+	<!-- 微信客户端web -->
+	<bean id="weiXinPublicAction" class=" com.ruijie.mcp.weixin.action.WeiXinPublicAction" scope="prototype">
+		<property name="weixinPicTextBus" ref="weixinPicTextBus" />
+	</bean>
+	
+	<!-- 清除用户 -->
+	<bean id="InitializeUserAction" class="com.ruijie.mcp.action.InitializeUserAction" scope="prototype">
+		<property name="mobileResourceManageBus" ref="mobileResourceManageBus"/>
+		<property name="onlineUserBus" ref="onlineUserBus" />
+		<property name="userRegisterBus" ref="userRegisterBus" />
+		<property name="deviceOperaterDabbo" ref="deviceOperaterDabbo"/>
+		<property name="systemConfigBus" ref="systemConfigBus" />
+		<property name="onlineDetailBus" ref="onlineDetailBus"/>
+		<property name="forceOfflineDubbo" ref="forceOfflineDubbo"/>
+	</bean>
+	
+	<!-- ****************************以下是营销云的配置****************************** -->
+	<!-- 店员管理 -->
+	<bean id="tenantWaiterAction" class="com.ruijie.mcp.application.coupon.action.TenantWaiterAction" scope="prototype">
+		<property name="tenantWaiterBus" ref="tenantWaiterBus" />
+	</bean>
+	<!-- 点券管理 -->
+	<bean id="tenantCouponAction" class="com.ruijie.mcp.application.coupon.action.TenantCouponAction" scope="prototype">
+		<property name="tenantCouponBus" ref="tenantCouponBus" />
+		<property name="tenantBusinessesBus" ref="tenantBusinessesBus" />
+	</bean>
+	
+    <!-- 微信点券web -->
+	<bean id="weiXinCouponAction" class="com.ruijie.mcp.application.coupon.action.WeiXinCouponAction" scope="prototype">
+		<property name="customerCouponBus" ref="customerCouponBus" />
+		<property name="tenantCouponBus" ref="tenantCouponBus" />
+		<property name="tenantBusinessesBus" ref="tenantBusinessesBus" />
+		<property name="tenantCustomerBus" ref="tenantCustomerBus" />
+	</bean>
+	
+	<!-- 商家配置 -->
+	<bean id="couponTenantConfigAction" class="com.ruijie.mcp.application.coupon.action.CouponTenantConfigAction" scope="prototype">
+	    <property name="tenantBusinessesBus" ref="tenantBusinessesBus" />
+	    <property name="tenantWaiterBus" ref="tenantWaiterBus" />
+	</bean>
+	
+	<!-- 点券编辑 -->
+	<bean id="couponEditAction" class="com.ruijie.mcp.application.coupon.action.CouponEditAction" scope="prototype">
+		<property name="tenantCouponBus" ref="tenantCouponBus" />
+	</bean>
+	
+</beans>

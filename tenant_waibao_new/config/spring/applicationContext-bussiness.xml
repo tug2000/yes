@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+	<!-- 广告内容推送 -->
+	<bean id="adContentPushBus"
+		class="com.ruijie.mcp.business.impl.AdContentPushBusImpl">
+		<property name="adContentPushDao">
+			<ref bean="adContentPushDao" />
+		</property>
+	</bean>
+	
+	<!-- 用户注册 -->
+	<bean id="userRegisterBus" class="com.ruijie.mcp.business.impl.UserRegisterBusImpl">
+		<property name="userRegisterDao" ref="userRegisterDao"/>
+	</bean>
+
+	<!-- 在线用户 -->
+	<bean id="onlineUserBus" class="com.ruijie.mcp.business.impl.OnlineUserBusImpl">
+		<property name="onlineUserDao" ref="onlineUserDao"/>
+	</bean>
+	
+	<!-- 手机资源管理 -->
+	<bean id="mobileResourceManageBus" class="com.ruijie.mcp.business.impl.MobileResourceManageBusImpl">
+		<property name="mobileResourceManageDao" ref="mobileResourceManageDao"/>
+	</bean>
+	
+	<!-- 系统管理员模块 -->
+	<bean id="systemAdminBus" class="com.ruijie.mcp.business.impl.SystemAdminBusImpl">
+		<property name="systemAdminDao" ref="systemAdminDao"/>
+		<property name="tenantDao" ref="tenantDao"/>
+		<!-- <property name="templateManageDao" ref="templateManageDao"/> -->
+		<property name="tenantParameterConfigDao" ref="tenantParameterConfigDao"/>
+		<property name="systemConfigBus" ref="systemConfigBus"/>
+	</bean>
+	
+	<!-- 系统配置模块 -->
+	<bean id="systemConfigBus" class="com.ruijie.mcp.business.impl.SystemConfigBusImpl" init-method="init">
+		<property name="systemConfigDao" ref="systemConfigDao"/>
+		<property name="tenantParamDao"  ref="tenantParameterConfigDao"/>
+		<property name="systemAdminDao"  ref="systemAdminDao"/>
+	</bean>
+
+	<!-- SMP上网明细 -->
+	<bean id="onlineDetailBus" class="com.ruijie.mcp.user.log.internal.OnlineDetailBusImpl">
+		<property name="onlineDetailDao" ref="onlineDetailDao"/>
+	</bean>
+	
+	<!-- Web snmp 常量 -->
+	<bean id="webValidateConstantsBus" class="com.ruijie.mcp.business.impl.WebValidateConstantsBusImpl">
+		<property name="systemConfigBus" ref="systemConfigBus"/>
+	</bean>
+	
+	<!-- 短信网关配置 -->
+	<bean id="messageBus" class="com.ruijie.mcp.business.impl.MessageBusImpl">
+		<property name="configBus" ref="systemConfigBus"/>
+		<property name="smsSendCountBus" ref="smsSendCountBus"></property>
+		<property name="sysadminBus" ref="systemAdminBus"></property>
+		<property name="smsSendService" ref="smsSend"></property>
+	</bean>
+	
+	<!-- 广告图片配置 -->
+	<bean id="adImagesBus" class="com.ruijie.mcp.business.impl.AdImagesBusImpl">
+		<property name="imagesDao" ref="adImagesDao"/>
+	</bean>
+	
+	<!-- 广告文本配置 -->
+	<bean id="adTextBus" class="com.ruijie.mcp.business.impl.AdTextBusImpl">
+		<property name="adTextDao" ref="adTextDao"/>
+	</bean>
+	
+	<!-- 模板管理 -->
+	<bean id="templateManageBus" class="com.ruijie.mcp.business.impl.TemplateManageBusImpl">
+		<property name="templateManageDao" ref="templateManageDao"/>
+		<property name="deviceOperaterDabbo" ref="deviceOperaterDabbo"/>
+		<property name="systemConfigBus" ref="systemConfigBus" />
+		<property name="adImagesBus" ref="adImagesBus" />
+		<property name="adTextBus" ref="adTextBus"/>
+	</bean>
+	
+	<!-- 短信发送历史记录 -->
+	<bean id="smsSendCountBus" class="com.ruijie.mcp.business.impl.SmeSendCountBusImpl">
+		<property name="smsSendCountDao" ref="smsSendCountDao"/>
+	</bean>
+	
+	<!-- 租户参数配置 -->
+	<bean id="tenantParameterConfigBus" class="com.ruijie.mcp.business.impl.TenantParameterConfigBusImpl">
+		<property name="tenantParameterConfigDao" ref="tenantParameterConfigDao"/>
+	</bean>
+	
+	<!-- 系统日志表 -->
+	<bean id="systemLogBus" class="com.ruijie.mcp.user.log.internal.SystemLogBusImpl">
+		<property name="systemLogDao" ref="systemLogDao"/>
+	</bean>
+	
+    <!-- 短链接映射 -->
+	<bean id="shortUrlMappingBus" class="com.ruijie.mcp.business.impl.ShortUrlMappingBusImpl">
+		<property name="shortUrlMappingDao" ref="shortUrlMappingDao"/>
+	</bean>
+	
+	<!-- 微信账号绑定 -->
+	<bean id="weixinAccountBus" class="com.ruijie.mcp.weixin.business.impl.WeixinAccountBusImpl">
+		<property name="weixinAccountDao" ref="weixinAccountDao"/>
+	</bean>
+	
+	<!-- 微信图文 -->
+	<bean id="weixinPicTextBus" class="com.ruijie.mcp.weixin.business.impl.WeixinPicTextBusImpl">
+		<property name="weixinPicTextDao" ref="weixinPicTextDao"/>
+	</bean>
+	
+	<!-- 微信关键字自动回复规则 -->
+	<bean id="weixinKeyReplyRuleBus" class="com.ruijie.mcp.weixin.business.impl.WeixinKeyReplyRuleBusImpl">
+		<property name="weixinKeyReplyRuleDao" ref="weixinKeyReplyRuleDao"/>
+	</bean>
+	
+	<!-- 微信关键字规则映射关系-->
+	<bean id="weixinKeyRuleRelationBus" class=" com.ruijie.mcp.weixin.business.impl.WeixinKeyRuleRelationBusImpl">
+		<property name="weixinKeyRuleRelationDao" ref="weixinKeyRuleRelationDao"/>
+	</bean>
+	
+	<!-- 微信自定义菜单-->
+	<bean id="weixinCustomMenuBus" class=" com.ruijie.mcp.weixin.business.impl.WeixinCustomMenuBusImpl">
+		<property name="weixinCustomMenuDao" ref="weixinCustomMenuDao"/>
+	</bean>
+	
+	<!-- 微信初始化数据-->
+	<bean id="weixinMemoryUtil" class=" com.ruijie.mcp.weixin.tools.WeixinMemoryUtil" init-method="init">
+	</bean>
+	
+	<!-- 设备管理优化-->
+	<bean id="snAcsUrlBus" class="com.ruijie.mcp.business.impl.SnAcsUrlBusImpl">
+		<property name="snAcsUrlDao" ref="snAcsUrlDao"/>
+	</bean>
+	
+	<!-- ****************************以下是营销云的配置****************************** -->
+	<!-- 店员管理 -->
+	<bean id="tenantWaiterBus" class="com.ruijie.mcp.application.coupon.business.impl.TenantWaiterBusImpl">
+		<property name="tenantWaiterDao" ref="tenantWaiterDao"/>
+	</bean>
+	<!-- 顾客管理 -->
+	<bean id="tenantCustomerBus" class="com.ruijie.mcp.application.coupon.business.impl.TenantCustomerBusImpl">
+		<property name="tenantCustomerDao" ref="tenantCustomerDao"/>
+	</bean>
+	<!-- 点券管理 -->
+	<bean id="tenantCouponBus" class="com.ruijie.mcp.application.coupon.business.impl.TenantCouponBusImpl">
+		<property name="tenantCouponDao" ref="tenantCouponDao"/>
+	</bean>
+	<!-- 点券兑换记录管理-->
+	<bean id="tenantCouponConverBus" class="com.ruijie.mcp.application.coupon.business.impl.TenantCouponConverBusImpl">
+		<property name="tenantCouponConverDao" ref="tenantCouponConverDao"/>
+	</bean>
+	<!-- 点券消费记录管理-->
+	<bean id="tenantCouponConsumeBus" class="com.ruijie.mcp.application.coupon.business.impl.TenantCouponConsumeBusImpl">
+		<property name="tenantCouponConsumeDao" ref="tenantCouponConsumeDao"/>
+	</bean>
+	<!-- 顾客点券关联表 -->
+	<bean id="customerCouponBus" class="com.ruijie.mcp.application.coupon.business.impl.CustomerCouponBusImpl">
+		<property name="customerCouponDao" ref="customerCouponDao"/>
+	</bean>
+	<!-- 商家 -->
+	<bean id="tenantBusinessesBus" class="com.ruijie.mcp.application.coupon.business.impl.TenantBusinessesBusImpl">
+		<property name="tenantBusinessesDao" ref="tenantBusinessesDao"/>
+	</bean>
+	
+</beans>

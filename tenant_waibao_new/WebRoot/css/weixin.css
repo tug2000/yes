@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+.spanwrap{
+	line-height:28px;
+	display:block;
+	word-warp:break-word;
+	word-break:break-all;
+	overflow:hidden;
+}
+
+.spanwrap2{
+	line-height:18px;
+	word-warp:break-word;
+	word-break:break-all;
+	overflow:hidden;
+}
+
+.desc_textarea{
+	color:#666;
+	resize: none;
+	border: 1px solid #c9c9c9;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	font:14px/25px "微软雅黑";
+}
+
+.pic_upload{
+	position: absolute;
+	opacity: 0;FILTER: Alpha(Opacity = 0);
+	height: 30px;
+	width: 60px;
+	left:45px;
+	cursor:pointer;
+}
+
+.wei_height1{max-height:32px;overflow: hidden;line-height: 16px;}
+.wei_height2{max-height:50px;width:130px;overflow: hidden;line-height: 25px;}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="tenantConfigManage" namespace="/tenantConfigManage" extends="root">
+		<action name="tenantConfigManage" class="com.ruijie.mcp.action.TenantConfigAction">
+			<result name="list">/web/config/tenant_config_index.jsp</result>
+			<result name="basic">/web/config/tenant_basic_config.jsp</result>
+			<result name="auth">/web/config/tenant_auth_config.jsp</result>
+		</action>
+	</package>
+</struts>

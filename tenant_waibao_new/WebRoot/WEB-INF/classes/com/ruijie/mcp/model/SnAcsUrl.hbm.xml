@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ruijie.mcp.model.SnAcsUrl" table="sn_acs_url" catalog="mcp">
+        <id name="sauId" type="java.lang.String">
+            <column name="sau_id" length="32" />
+            <generator class="uuid.hex" />
+        </id>
+        <property name="sauSn" type="java.lang.String">
+            <column name="sau_tr069_sn" length="32" />
+        </property>
+        <property name="sauAcsUrl" type="java.lang.String">
+            <column name="sau_tr069_acs_url" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>

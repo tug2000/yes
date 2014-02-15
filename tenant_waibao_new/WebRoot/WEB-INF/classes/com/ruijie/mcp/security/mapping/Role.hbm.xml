@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ruijie.mcp.security.Role" table="SCT_ROLE">
+		<id name="id" type="java.lang.String">
+			<column name="UUID" />
+			<generator class="uuid.hex" />
+		</id>
+		<property generated="never" lazy="false" name="roleName"
+			type="java.lang.String">
+			<column length="64" name="ROLE_NAME" />
+		</property>
+		<property generated="never" lazy="false" name="descr"
+			type="java.lang.String">
+			<column length="256" name="DESCR" />
+		</property>
+		<property generated="never" lazy="false" name="defaultUrl"
+			type="java.lang.String">
+			<column name="DEFAULT_URL" />
+		</property>
+		
+	</class>
+</hibernate-mapping>
